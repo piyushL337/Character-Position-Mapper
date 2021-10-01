@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Password Position Mapper By Piyush</title>
+  <link rel='stylesheet' href='https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.css'>
+<link rel="stylesheet" href="/style.css">
+
+</head>
+<body>
+
+<div data-ng-app="pass" data-ng-controller="AppCtrl">
+    <md-content class="md-padding">
+    <md-card>
+        <md-card-title layout="column">
+            <span class="md-headline">Character Position Mapper</span>
+            <span class="md-subhead">Type your password into the box below to reveal the character positions</span>
+        </md-card-title>
+
+        <md-card-content>
+            <div layout="row">
+                <md-input-container flex="">
+                    <label>Pass</label>
+                    <input type="text" ng-model="pass"/>
+                </md-input-container>
+                <md-input-container >
+                    <label>Row Length</label>
+                    <input type="number" min="1" ng-model="chunk_size"/>
+                </md-input-container>
+            </div>
+            <md-input-container>
+                Key map
+                <table>
+                    <tbody data-ng-repeat="chunk in chunkSubstr(pass,chunk_size) track by $index">
+                        <tr class="breaker">
+                            <td ng-colspan="chunk_size"></td>
+                        </tr>
+                        <tr class="numbers">
+                            <td data-ng-repeat="char in chunk.split('') track by $index">
+                                {{$index + 1 + ($parent.$index * chunk_size)}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td data-ng-repeat="char in chunk.split('') track by $index">
+                                {{char}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </md-input-container>
+        </md-card-content>
+    </md-card>
+    </md-content>
+</div>
+
+<!-------------------------------------------------------------------------------------------------------------------------------------------------------------->
+  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular.min.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-animate.min.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-aria.min.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.js'></script><script  src="./script.js"></script>
+
+
+</body>
+</html>
