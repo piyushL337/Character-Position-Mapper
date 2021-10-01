@@ -1,0 +1,16 @@
+table {
+        font-family: monospace, sans-serif;
+        border-collapse: collapse;
+    }
+    .numbers td {
+        font-size: 9px;
+        padding: 2px;
+    }
+    .breaker td {
+        border:none;
+    }
+    td{
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: center;
+    }
